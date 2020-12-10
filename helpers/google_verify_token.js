@@ -5,15 +5,16 @@ const CLIENT_ID = '1089586490749-37j6uft10pma5r35saoe6ja556t83aom.apps.googleuse
 const client = new OAuth2Client(CLIENT_ID);
 
 
-const validarGoogleIdToken = async (token) => {
+const validarGoogleIdToken = async(token) => {
 
     try {
         const ticket = await client.verifyIdToken({
             idToken: token,
             audience: [
                 CLIENT_ID,
-                '1089586490749-v1kft25bl0t6m7dlvahhrehsd5c5jfcg.apps.googleusercontent.com'
-            ],  // Specify the CLIENT_ID of the app that accesses the backend
+                '1089586490749-v1kft25bl0t6m7dlvahhrehsd5c5jfcg.apps.googleusercontent.com',
+                '1089586490749-fd0s3ipqk7mi2lgscnidvaeqta8nf5gn.apps.googleusercontent.com'
+            ], // Specify the CLIENT_ID of the app that accesses the backend
             // Or, if multiple clients access the backend:
             //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
         });
